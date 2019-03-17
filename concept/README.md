@@ -25,4 +25,23 @@ Auch wenn das Projekt als Open Source Projekt startet, sollen einzelne Teile als
   b) Gruppe von Bildern mit *einer oder mehr* Zutaten
   c) Eingabe einzelner Zutaten per Text 
 
-- Fortsetzung folgt...
+2) Login
+  Autorisation (OAuth für reduzierten Aufwand) um Nutzerdaten zuordnen und abrufen zu können (Profildaten und -einstellungen, eigene und gemerkte Rezepte etc.)
+
+3) Schnittstelle Bild-Upload
+  Zugriff auf Kamera und Galerie, optionale Verschlagwortung
+
+4) Rezeptsammlung
+  Verwaltung gemerkter Rezepte (Bookmarks)
+
+5) Suche
+  Suche durch Archiv bestehender Rezepte nach Autor, Zutat, Titel, Kategorie (vegan, alkoholisch(?), Allergene etv.)
+
+6) Impressum, Rechtliches
+  Über Standard hinausgehend: 
+  a) Erklärung des Nutzers, dass er Bildrechte hat und nichtexklusiv an _PictureFoods_ abtritt
+  b) Rechtsbelehrung betreffend kommerzielle Verwendung von Rezepten, bzw. deren Verbot
+
+
+
+Fortsetzung folgt...
