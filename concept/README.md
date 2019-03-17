@@ -21,9 +21,12 @@ Auch wenn das Projekt als Open Source Projekt startet, sollen einzelne Teile als
 ### Funktionen
 
 1) Eingabe/Erfassung von Zutaten 
-  a) Gruppe von Zutaten in *einem* Bild
-  b) Gruppe von Bildern mit *einer oder mehr* Zutaten
+  a) Gruppe von *mehreren* Zutaten in *einem* Bild, 
+     Auswahl von Produkten per Tap?
+  b) Gruppe von Bildern mit *einer* Zutat
   c) Eingabe einzelner Zutaten per Text 
+  d) Erkennung mehrerer Zutaten aus einem Videschwenk über eine Szene (spätere Ausbaustufe)
+  e) Optional: App schlägt weitere passende Zutaten (Einkaufsliste) vor (spätere Ausbaustufe)
 
 2) Login
   Autorisation (OAuth für reduzierten Aufwand) um Nutzerdaten zuordnen und abrufen zu können (Profildaten und -einstellungen, eigene und gemerkte Rezepte etc.)
@@ -42,6 +45,16 @@ Auch wenn das Projekt als Open Source Projekt startet, sollen einzelne Teile als
   a) Erklärung des Nutzers, dass er Bildrechte hat und nichtexklusiv an _PictureFoods_ abtritt
   b) Rechtsbelehrung betreffend kommerzielle Verwendung von Rezepten, bzw. deren Verbot
 
+
+### Interface
+Die Benutzung der App, d.h. im Wesentlichen Eingabe von Zutaten per Bilderfassung und entsprechende Ausgabe von Rezeptideen soll per Mobilgerät erfolgen.
+
+1) Smartphone
+2) Tablet
+3) Eingabe per AR Brille?
+  a) [Snapchat Spectacles](https://www.spectacles.com/de/), (nur) für Eingabe geeignet?
+    Anm.: Oliver hat so eine Snapchat Videobrille.
+  b) HoloLens, geeignet für Ein- und Ausgabe
 
 
 Fortsetzung folgt...
