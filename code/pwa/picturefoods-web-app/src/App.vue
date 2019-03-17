@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <span>Vue.js PWA</span>
+      <span>PictureFoods «Snapshot Recipes»</span>
     </header>
     <main>
       <img src="./assets/logo.png" alt="Vue.js PWA">
