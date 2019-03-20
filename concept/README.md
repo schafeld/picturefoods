@@ -1,6 +1,8 @@
 # PictureFoods
 ## «Snapshot Recipes»
 
+![./artwork/logo/logo-picturefoods.png](Picturefoods logo)
+
 Web app for food and beverage image recognition and corresponding recipe recommendation.
 
 **Copyright:** This concept and the content of the entire folder ('concept') contains intellectual property of the contributor(/s) protected by copyright.
