@@ -1,7 +1,7 @@
 # PictureFoods
 ## «Snapshot Recipes»
 
-![./artwork/logo/logo-picturefoods.png](Picturefoods logo)
+![https://github.com/schafeld/picturefoods/blob/master/concept/artwork/logo/logo-picturefoods.png](Picturefoods logo)
 
 Web app for food and beverage image recognition and corresponding recipe recommendation.
 
