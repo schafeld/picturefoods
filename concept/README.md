@@ -1,6 +1,8 @@
 # PictureFoods
 ## «Snapshot Recipes»
 
+![./artwork/logo/logo-picturefoods.png](Picturefoods logo)
+
 Web app for food and beverage image recognition and corresponding recipe recommendation.
 
 **Copyright:** This concept and the content of the entire folder ('concept') contains intellectual property of the contributor(/s) protected by copyright.
@@ -45,6 +47,9 @@ Auch wenn das Projekt als Open Source Projekt startet, sollen einzelne Teile als
   a) Erklärung des Nutzers, dass er Bildrechte hat und nichtexklusiv an _PictureFoods_ abtritt
   b) Rechtsbelehrung betreffend kommerzielle Verwendung von Rezepten, bzw. deren Verbot
 
+X) Weitere Ideen, "für später"
+  - Sprachsteuerung
+  - Sprachausgabe (Hände frei bei der Zubereitung, wenn AR Brille benutzt wird)
 
 ### Interface
 Die Benutzung der App, d.h. im Wesentlichen Eingabe von Zutaten per Bilderfassung und entsprechende Ausgabe von Rezeptideen soll per Mobilgerät erfolgen.
