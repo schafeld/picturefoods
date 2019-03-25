@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>PictureFoods is <em>GO!</em></h2>
+    <h2>Picturefoods is <em>GO!</em></h2>
     <p>This will be the smoothiest AI you'll ever see... 😎🍹</p>
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to PictureFoods PWA'
+      msg: 'Welcome to Picturefoods PWA'
     }
   }
 }

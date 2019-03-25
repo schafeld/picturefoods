@@ -3,6 +3,8 @@
 
 ![Picturefoods Logo](https://raw.githubusercontent.com/schafeld/picturefoods/master/concept/artwork/logo/logo-picturefoods.png?token=AE0dfVgQZkr2lAa8F2BUth2Ls4AYCt1Uks5ckd8iwA%3D%3D)
 
+(Logo Font ist "Kozuka Mincho Pro", Schnitt 'B')
+
 Web app for food and beverage image recognition and corresponding recipe recommendation.
 
 **Copyright:** This concept and the content of the entire folder ('concept') contains intellectual property of the contributor(/s) protected by copyright.

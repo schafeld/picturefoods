@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <header>
-      <span>PictureFoods «Snapshot Recipes»</span>
+      <span>Picturefoods «Snapshot Recipes»</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
+      <img src="./assets/logo-picturefoods-512x512.png" alt="Picturefoods PWA">
       <router-view></router-view>
     </main>
   </div>
