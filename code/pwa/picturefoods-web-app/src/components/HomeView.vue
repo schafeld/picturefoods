@@ -1,5 +1,6 @@
 <template>
   <ul class="list">
+    <li><img src="../assets/logo-picturefoods-72x72.png" alt="Picturefoods PWA"></li>
   </ul>
 </template>
 <script>
