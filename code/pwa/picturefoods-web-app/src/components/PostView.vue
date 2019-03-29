@@ -23,20 +23,41 @@
 
 <script>
   // import parse from 'xml-parser'
+  import axios from 'axios'
 
   export default {
     data () {
       return {
         'catUrl': null,
-        'title': ''
+        'title': '',
+        'image': {url: ''}
       }
     },
     mounted () {
       /* this.$http.get('https://thecatapi.com/api/images/get?format=xml&results_per_page=1').then(response => {
         this.catUrl = parse(response.body).root.children['0'].children['0'].children['0'].children['0'].content */
+      /*
+      // This only works locally
       this.$http.get('https://api.thecatapi.com/v1/images/search').then(response => {
         this.catUrl = response.body[0].url
       })
+      */
+      let that = this
+      try {
+        axios.defaults.headers.common['x-api-key'] = 'ba5cdaca-5476-4e28-a8ef-c7b65b0e1bbb'
+        // Ask for 1 Image, at full resolution
+        axios.get('https://api.thecatapi.com/v1/images/search', { params: { limit: 1, size: 'full' } })
+          .then(function (response) {
+            // the response is an Array, so just use the first item as the Image
+            that.image = response.data[0]
+            console.log('-- Image from TheCatAPI.com')
+            console.log('id:', that.image.id)
+            console.log('url:', that.image.url)
+            that.catUrl = that.image.url
+          })
+      } catch (err) {
+        console.log(err)
+      }
     },
     methods: {
       postCat () {
@@ -44,7 +65,7 @@
           {
             'url': this.catUrl,
             'comment': this.title,
-            'info': 'Posted by Charles on Tuesday',
+            'info': 'Posted by Me on Someday',
             'created_at': -1 * new Date().getTime()
           })
           .then(this.$router.push('/'))
