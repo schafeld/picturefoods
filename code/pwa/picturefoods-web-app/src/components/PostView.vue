@@ -26,7 +26,8 @@
   export default {
     data () {
       return {
-        'catUrl': null
+        'catUrl': null,
+        'title': ''
       }
     },
     mounted () {
