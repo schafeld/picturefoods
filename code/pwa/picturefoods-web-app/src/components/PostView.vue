@@ -22,7 +22,8 @@
 </template>
 
 <script>
-  import parse from 'xml-parser'
+  // import parse from 'xml-parser'
+
   export default {
     data () {
       return {
@@ -31,8 +32,10 @@
       }
     },
     mounted () {
-      this.$http.get('https://thecatapi.com/api/images/get?format=xml&results_per_page=1').then(response => {
-        this.catUrl = parse(response.body).root.children['0'].children['0'].children['0'].children['0'].content
+      /* this.$http.get('https://thecatapi.com/api/images/get?format=xml&results_per_page=1').then(response => {
+        this.catUrl = parse(response.body).root.children['0'].children['0'].children['0'].children['0'].content */
+      this.$http.get('https://api.thecatapi.com/v1/images/search').then(response => {
+        this.catUrl = response.body[0].url
       })
     },
     methods: {
