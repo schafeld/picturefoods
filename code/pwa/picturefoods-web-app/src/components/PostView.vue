@@ -3,7 +3,7 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--8-col">
         <div class="card-image__picture">
-          <img :src="this.catUrl" :width="this.width" :height="this.height" class="featured" />
+          <img :src="this.imageUrl" :width="this.imageWidth" :height="this.imageHeight" class="featured" />
           <div class="indicator text" v-if="state === 'idle' || state === 'loading'">Loading...</div>
         </div>
       </div>
@@ -29,9 +29,11 @@
   export default {
     data () {
       return {
-        'catUrl': null,
+        'image': null,
+        'imageUrl': '',
+        'imageWidth': 0,
+        'imageHeight': 0,
         'title': '',
-        'image': {url: '', width: 0, height: 0},
         'state': 'idle'
       }
     },
@@ -57,7 +59,10 @@
             console.log('-- Image from TheCatAPI.com')
             console.log('id:', that.image.id)
             console.log('url:', that.image.url)
-            that.catUrl = that.image.url
+
+            that.imageUrl = that.image.url
+            that.imageWidth = that.image.widht
+            that.imageHeight = that.image.height
 
             that.state = 'done'
           })
@@ -69,7 +74,7 @@
       postCat () {
         this.$root.$firebaseRefs.cat.push(
           {
-            'url': this.catUrl,
+            'url': this.imageUrl,
             'comment': this.title,
             'info': 'Posted by Me on Someday',
             'created_at': -1 * new Date().getTime()
