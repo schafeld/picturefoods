@@ -30,8 +30,18 @@
         image: {}
       }
     },
+    methods: {
+      getImage () {
+        if (navigator.onLine) {
+          return find(this.$root.imageCatalog, (imageCatalog) => imageCatalog['.key'] === this.$route.params.id)
+        } else {
+          return find(JSON.parse(localStorage.getItem('images')), (imageCatalog) => imageCatalog['.key'] === this.$route.params.id)
+        }
+      }
+    },
     mounted () {
-      this.image = find(this.$root.imageCatalog, (imageCatalog) => imageCatalog['.key'] === this.$route.params.id)
+      // this.image = find(this.$root.imageCatalog, (imageCatalog) => imageCatalog['.key'] === this.$route.params.id)
+      this.image = this.getImage()
     }
   }
   </script>
