@@ -13,7 +13,7 @@
           <label for="username" class="mdl-textfield__label">Describe image</label>
         </div>
         <div class="actions">
-          <a @click.prevent="postCat" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          <a @click.prevent="postImage" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             Save image
           </a>
         </div>
@@ -38,10 +38,7 @@
       }
     },
     mounted () {
-      /* this.$http.get('https://thecatapi.com/api/images/get?format=xml&results_per_page=1').then(response => {
-        this.catUrl = parse(response.body).root.children['0'].children['0'].children['0'].children['0'].content */
-      /*
-      // This only works locally
+      /* This might work without API key
       this.$http.get('https://api.thecatapi.com/v1/images/search').then(response => {
         this.catUrl = response.body[0].url
       })
@@ -71,8 +68,8 @@
       }
     },
     methods: {
-      postCat () {
-        this.$root.$firebaseRefs.cat.push(
+      postImage () {
+        this.$root.$firebaseRefs.imageCatalog.push(
           {
             'url': this.imageUrl,
             'comment': this.title,
