@@ -35,11 +35,11 @@
         }
       },
       saveImagesToCache () {
-        this.$root.$firebaseRefs.imageCatalog.orderByChild('created_at').once('value', (snapshot) => {
+        this.$root.$firebaseRefs.imageCatalog.orderByChild('created_at').once('value', (snapshots) => {
           let cachedImages = []
-          snapshot.forEach((imageSnapshot) => {
-            let cachedImage = imageSnapshot.val()
-            cachedImage['.key'] = imageSnapshot.key
+          snapshots.forEach((snapshot) => {
+            let cachedImage = snapshot.val()
+            cachedImage['.key'] = snapshot.key
             cachedImages.push(cachedImage)
           })
           localStorage.setItem('images', JSON.stringify(cachedImages))
