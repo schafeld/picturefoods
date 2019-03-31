@@ -25,10 +25,32 @@
     methods: {
       displayDetails (id) {
         this.$router.push({name: 'detail', params: { id: id }})
+      },
+      getImages () {
+        if (navigator.onLine) {
+          this.saveImagesToCache()
+          return this.$root.cat
+        } else {
+          return JSON.parse(localStorage.getItem('images'))
+        }
+      },
+      saveImagesToCache () {
+        this.$root.$firebaseRefs.cat.orderByChild('created_at').once('value', (snapshot) => {
+          let cachedImages = []
+          snapshot.forEach((imageSnapshot) => {
+            let cachedImage = imageSnapshot.val()
+            cachedImage['.key'] = imageSnapshot.key
+            cachedImages.push(cachedImage)
+          })
+          localStorage.setItem('images', JSON.stringify(cachedImages))
+        })
       }
     },
     data () {
       return {}
+    },
+    mounted () {
+      this.saveImagesToCache()
     }
   }
 </script>
