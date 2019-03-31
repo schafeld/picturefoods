@@ -28,3 +28,15 @@ npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## Deployment Setup
+Project is set up for deployment at Zeit Now. Actual Prod domain is at 1&1 and 'aliased' through custom DNS entry to point to Zeit webspace.
+``` bash
+# deploy (to https://picturefoods.schafeld.now.sh, Staging)
+now
+
+# update aliased domain (to picturefoods domain, Prod)
+now alias https://picturefoods.schafeld.now.sh picturefoods.com
+now alias https://picturefoods.schafeld.now.sh www.picturefoods.com
+```
