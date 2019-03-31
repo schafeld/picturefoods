@@ -111,6 +111,23 @@ const webpackConfig = merge(baseWebpackConfig, {
       stripPrefix: 'dist/',
       runtimeCaching: [
       {
+        // outdated path
+        urlPattern: /^https:\/\/thecatapi\.com\/api\/images\/get\.php\?id/,
+        handler: 'cacheFirst'
+      },
+      {
+        urlPattern: /^https:\/\/cdn2\.thecatapi\.com\/images/,
+        handler: 'cacheFirst'
+      },
+      {
+        urlPattern: /^https:\/\/(\d+)\.media\.tumblr\.com\//,
+        handler: 'cacheFirst'
+      },
+      {
+        urlPattern: /^http:\/\/(\d+)\.media\.tumblr\.com\//,
+        handler: 'cacheFirst'
+      },
+      {
         urlPattern: /^https:\/\/fonts\.googleapis\.com\//,
         handler: 'cacheFirst'
       },
