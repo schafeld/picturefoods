@@ -4,7 +4,7 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--3-col mdl-cell mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
-        <div v-for="picture in this.$root.cat" class="image-card" :key="picture.id" @click="displayDetails(picture['.key'])">
+        <div v-for="picture in getImages()" class="image-card" :key="picture.id" @click="displayDetails(picture['.key'])">
           <div class="image-card__picture">
             <img :src="picture.url" />
           </div>
@@ -25,10 +25,41 @@
     methods: {
       displayDetails (id) {
         this.$router.push({name: 'detail', params: { id: id }})
+      },
+      getImages () {
+        if (navigator.onLine) {
+          this.saveImagesToCache()
+          return this.$root.imageCatalog
+        } else {
+          return JSON.parse(localStorage.getItem('images'))
+        }
+      },
+      // Compare naming, https://blog.sicara.com/a-progressive-web-application-with-vue-js-webpack-material-design-part-3-service-workers-offline-ed3184264fd1
+      // snapchot - snapshots
+      // cachedCats - cachedImages
+      // snapshot - snapshots
+      // cachedCat - cachedImage
+      // catSnapchot - snapshot
+      // cachedCats - cachedImages
+      // cats - images
+      // cats - imageCatalog
+      saveImagesToCache () {
+        this.$root.$firebaseRefs.imageCatalog.orderByChild('created_at').once('value', (snapshots) => {
+          let cachedImages = []
+          snapshots.forEach((snapshot) => {
+            let cachedImage = snapshot.val()
+            cachedImage['.key'] = snapshot.key
+            cachedImages.push(cachedImage)
+          })
+          localStorage.setItem('images', JSON.stringify(cachedImages))
+        })
       }
     },
     data () {
       return {}
+    },
+    mounted () {
+      this.saveImagesToCache()
     }
   }
 </script>
