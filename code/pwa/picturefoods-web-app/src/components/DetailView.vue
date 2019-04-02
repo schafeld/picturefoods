@@ -2,7 +2,9 @@
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--8-col">
       <div class="picture">
-        <img :src="image.url" />
+        <router-link to="../">
+          <img :src="image.url" />
+        </router-link>
       </div>
       <div class="info">
         <span>{{ image.info }}</span>

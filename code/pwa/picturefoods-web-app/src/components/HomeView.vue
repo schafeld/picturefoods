@@ -4,7 +4,7 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--3-col mdl-cell mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
-        <div v-for="picture in getImages()" class="image-card" :key="picture.id" @click="displayDetails(picture['.key'])">
+        <div v-for="picture in getImages()" class="image-card clickable" :key="picture.id" @click="displayDetails(picture['.key'])">
           <div class="image-card__picture">
             <img :src="picture.url" />
           </div>
@@ -16,6 +16,9 @@
     </div>
     <router-link class="add-picture-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored" to="/post">
       <i class="material-icons">add</i>
+    </router-link>
+    <router-link class="take-picture-button mdl-button mdl-js-button mdl-button--fab mdl-button--colored" to="/camera">
+      <i class="material-icons">camera_alt</i>
     </router-link>
   </div>
 </template>
@@ -93,5 +96,11 @@
     color: #fff;
     font-size: 14px;
     font-weight: bold;
+  }
+  .take-picture-button {
+    position: fixed;
+    right: 24px;
+    bottom: 90px;
+    z-index: 5;
   }
 </style>
