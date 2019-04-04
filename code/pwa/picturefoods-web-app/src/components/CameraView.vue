@@ -11,13 +11,24 @@
 
 <script>
   export default {
+    data () {
+      return {
+        mediaStream: null
+      }
+    },
     methods: {
       capture () {
+        const mediaStreamTrack = this.mediaStream.getVideoTracks()[0]
+        const imageCapture = new window.ImageCapture(mediaStreamTrack)
+        return imageCapture.takePhoto().then(blob => {
+          console.log(blob)
+        })
       }
     },
     mounted () {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then(mediaStream => {
+          this.mediaStream = mediaStream
           this.$refs.video.srcObject = mediaStream
           this.$refs.video.play()
         })
