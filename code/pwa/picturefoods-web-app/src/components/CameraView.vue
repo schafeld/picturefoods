@@ -33,6 +33,10 @@
           this.$refs.video.play()
         })
         .catch(error => console.error('getUserMedia() error:', error))
+    },
+    destroyed () {
+      const tracks = this.mediaStream.getTracks()
+      tracks.map(track => track.stop())
     }
   }
 </script>
