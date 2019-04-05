@@ -25,8 +25,10 @@
 <script>
   // import parse from 'xml-parser'
   import axios from 'axios'
+  import postImage from '../mixins/postImage'
 
   export default {
+    mixins: [postImage],
     data () {
       return {
         'image': null,
@@ -67,7 +69,7 @@
         console.log(err)
       }
     },
-    methods: {
+    methods: {/*
       postImage () {
         this.$root.$firebaseRefs.imageCatalog.push(
           {
@@ -77,7 +79,7 @@
             'created_at': -1 * new Date().getTime()
           })
           .then(this.$router.push('/'))
-      }
+      } */
     }
   }
 </script>
