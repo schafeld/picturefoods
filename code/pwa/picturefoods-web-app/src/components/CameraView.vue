@@ -10,6 +10,8 @@
 </template>
 
 <script>
+  import { storage } from '@/services/firebase'
+
   export default {
     data () {
       return {
@@ -20,8 +22,15 @@
       capture () {
         const mediaStreamTrack = this.mediaStream.getVideoTracks()[0]
         const imageCapture = new window.ImageCapture(mediaStreamTrack)
+        /*
+        // keep for debugging?
         return imageCapture.takePhoto().then(blob => {
           console.log(blob)
+        })
+        */
+        return imageCapture.takePhoto().then(blob => {
+          storage.ref().child(`images/picture-${new Date().getTime()}`).put(blob).then(res => { console.log(res) })
+          this.$router.go(-1)
         })
       }
     },

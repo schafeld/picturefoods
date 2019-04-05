@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuefire from 'vuefire'
-import firebase from './services/firebase'
+import { database } from '@/services/firebase'
 import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
@@ -16,7 +16,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   firebase: {
-    imageCatalog: firebase.database.ref('imageCatalog').orderByChild('created_at')
+    imageCatalog: database.ref('imageCatalog').orderByChild('created_at')
   },
   router,
   template: '<App/>',

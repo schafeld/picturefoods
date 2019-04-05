@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-// TODO: Rather import sensitive data from gitignored file?
+// TODO: Implement security/auth!
 
 var config = {
   apiKey: 'AIzaSyCIIwbzcI3fB7Dr30YtGJGHDXbvNsVUdeI',
@@ -11,6 +11,10 @@ var config = {
 }
 firebase.initializeApp(config)
 
-export default {
-  database: firebase.database()
+const storage = firebase.storage()
+const database = firebase.database()
+
+export {
+  database,
+  storage
 }
