@@ -11,11 +11,15 @@
 
 <script>
   import { storage } from '@/services/firebase'
+  import postImage from '../mixins/postImage'
 
   export default {
+    mixins: [postImage],
     data () {
       return {
-        mediaStream: null
+        mediaStream: null,
+        'imageUrl': '',
+        'title': 'Snapshot from Picturefoods web app'
       }
     },
     methods: {
@@ -29,8 +33,14 @@
         })
         */
         return imageCapture.takePhoto().then(blob => {
-          storage.ref().child(`images/picture-${new Date().getTime()}`).put(blob).then(res => { console.log(res) })
-          this.$router.go(-1)
+          storage.ref().child(`images/picture-${new Date().getTime()}`).put(blob)
+            .then(res => {
+              console.table(res)
+              console.log('Bucket: ' + res.ref.bucket + ', full path: ' + res.ref.fullPath)
+              this.imageUrl = 'https://firebasestorage.googleapis.com/v0/b/picturefoods-firebase.appspot.com/o/images%2F' + res.ref.name + '?alt=media'
+              this.postImage()
+              this.$router.go(-1)
+            })
         })
       }
     },
