@@ -1,7 +1,9 @@
 # PictureFoods
 ## «Snapshot Recipes»
 
-![Picturefoods Logo](https://raw.githubusercontent.com/schafeld/picturefoods/master/concept/artwork/logo/logo-picturefoods.png?token=AE0dfVgQZkr2lAa8F2BUth2Ls4AYCt1Uks5ckd8iwA%3D%3D)
+
+![Picturefoods Logo](concept/artwork/logo/logo-picturefoods-002.png)
+([Logo](https://github.com/schafeld/picturefoods/blob/master/concept/artwork/logo/logo-picturefoods-002.png) font is Source Serif Variable (Roman))
 
 Web app for food and beverage image recognition and corresponding recipe recommendation.
 
