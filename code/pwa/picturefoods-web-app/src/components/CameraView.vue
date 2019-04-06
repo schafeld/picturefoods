@@ -10,18 +10,37 @@
 </template>
 
 <script>
+  import { storage } from '@/services/firebase'
+  import postImage from '../mixins/postImage'
+
   export default {
+    mixins: [postImage],
     data () {
       return {
-        mediaStream: null
+        mediaStream: null,
+        'imageUrl': '',
+        'title': 'Snapshot from Picturefoods web app'
       }
     },
     methods: {
       capture () {
         const mediaStreamTrack = this.mediaStream.getVideoTracks()[0]
         const imageCapture = new window.ImageCapture(mediaStreamTrack)
+        /*
+        // keep for debugging?
         return imageCapture.takePhoto().then(blob => {
           console.log(blob)
+        })
+        */
+        return imageCapture.takePhoto().then(blob => {
+          storage.ref().child(`images/picture-${new Date().getTime()}`).put(blob)
+            .then(res => {
+              console.table(res)
+              console.log('Bucket: ' + res.ref.bucket + ', full path: ' + res.ref.fullPath)
+              this.imageUrl = 'https://firebasestorage.googleapis.com/v0/b/picturefoods-firebase.appspot.com/o/images%2F' + res.ref.name + '?alt=media'
+              this.postImage()
+              this.$router.go(-1)
+            })
         })
       }
     },
