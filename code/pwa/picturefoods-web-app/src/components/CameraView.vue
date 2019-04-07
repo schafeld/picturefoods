@@ -42,9 +42,29 @@
               this.$router.go(-1)
             })
         })
+      },
+      checkMediaDevices () {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+          console.log('enumerateDevices() not supported.')
+          return
+        }
+
+        // List cameras and microphones.
+        navigator.mediaDevices.enumerateDevices()
+          .then(function (devices) {
+            devices.forEach(function (device) {
+              console.log(device.kind + ': ' + device.label +
+                ' id = ' + device.deviceId)
+            })
+          })
+          .catch(function (e) {
+            console.log(e.name + ': ' + e.message)
+          })
       }
     },
     mounted () {
+      this.checkMediaDevices()
+
       navigator.mediaDevices.getUserMedia({ video: true })
         .then(mediaStream => {
           this.mediaStream = mediaStream
