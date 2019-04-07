@@ -65,7 +65,12 @@
     mounted () {
       this.checkMediaDevices()
 
-      navigator.mediaDevices.getUserMedia({ video: true })
+      const constraints = {
+        advanced: [{
+          facingMode: 'environment'
+        }]
+      }
+      navigator.mediaDevices.getUserMedia({ video: constraints }) // video: true
         .then(mediaStream => {
           this.mediaStream = mediaStream
           this.$refs.video.srcObject = mediaStream
