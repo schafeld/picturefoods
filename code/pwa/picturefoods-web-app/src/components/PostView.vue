@@ -23,7 +23,6 @@
 </template>
 
 <script>
-  // import parse from 'xml-parser'
   import axios from 'axios'
   import postImage from '../mixins/postImage'
 
