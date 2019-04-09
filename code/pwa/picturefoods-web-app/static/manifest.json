@@ -1,7 +1,6 @@
 {
   "name": "Picturefoods – Snapshot Recipes",
   "short_name": "Picturefoods",
-  "start": "/gallery",
   "icons": [
     {
       "src": "img/icons/icon-72x72.png",
