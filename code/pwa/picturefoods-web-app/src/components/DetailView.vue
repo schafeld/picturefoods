@@ -42,7 +42,6 @@
       }
     },
     mounted () {
-      // this.image = find(this.$root.imageCatalog, (imageCatalog) => imageCatalog['.key'] === this.$route.params.id)
       this.image = this.getImage()
     }
   }
