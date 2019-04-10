@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomeView from '@/components/HomeView'
+import GalleryView from '@/components/GalleryView'
 import DetailView from '@/components/DetailView'
 import PostView from '@/components/PostView'
 import CameraView from '@/components/CameraView'
@@ -14,6 +15,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/gallery',
+      name: 'gallery',
+      component: GalleryView
     },
     {
       path: '/detail/:id',

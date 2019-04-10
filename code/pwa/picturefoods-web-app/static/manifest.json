@@ -45,7 +45,9 @@
   ],
   "start_url": "/index.html",
   "display": "fullscreen",
-  "orientation": "portrait",
+  "orientation": "portrait-primary",
   "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "theme_color": "#4DBA87",
+  "description": "Take food ingredient snapshots and get matching recipes back, powered by AI.",
+  "lang": "en-US"
 }
