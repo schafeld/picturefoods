@@ -6,6 +6,7 @@ import DetailView from '@/components/DetailView'
 import PostView from '@/components/PostView'
 import CameraView from '@/components/CameraView'
 import LoginView from '@/components/LoginView'
+import RegisterView from '@/components/RegisterView'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: LoginView
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterView
     }
   ]
 })
