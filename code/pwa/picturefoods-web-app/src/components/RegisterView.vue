@@ -7,7 +7,7 @@
       </div>
       
       <div class="mdl-cell mdl-cell--3-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" id="login" v-model="login">
+        <input class="mdl-textfield__input" type="text" id="email" v-model="email">
         <label class="mdl-textfield__label" for="login">Login (E-Mail)</label>
       </div>
       <div class="mdl-cell mdl-cell--3-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -15,9 +15,9 @@
         <label class="mdl-textfield__label" for="password">Password</label>
       </div>
       <button class="mdl-cell mdl-cell--1-col" @click="register">Sign up</button>
-      <p>Or <router-link to="/">Log in</router-link></p>
+      <p>Or <router-link to="/login">log in</router-link></p>
     </div>
-    <div>Login {{login}}, password: {{password}} </div>
+    <div>Login {{email}}, password: {{password}} </div>
     <div>Signup result: {{result}}</div>
   </div>
 </template>
@@ -29,7 +29,7 @@
     methods: {
       register () {
         const that = this
-        firebase.auth().createUserWithEmailAndPassword(this.login, this.password).then(
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
           function (user) {
             console.log('Signup success')
             that.result = 'Success'
@@ -43,7 +43,7 @@
     },
     data () {
       return {
-        login: null,
+        email: null,
         password: null,
         result: null
       }
