@@ -7,10 +7,11 @@ import PostView from '@/components/PostView'
 import CameraView from '@/components/CameraView'
 import LoginView from '@/components/LoginView'
 import RegisterView from '@/components/RegisterView'
+import firebase from 'firebase'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '*',
@@ -23,12 +24,18 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/gallery',
       name: 'gallery',
-      component: GalleryView
+      component: GalleryView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/detail/:id',
@@ -38,12 +45,18 @@ export default new Router({
     {
       path: '/post',
       name: 'post',
-      component: PostView
+      component: PostView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/camera',
       name: 'camera',
-      component: CameraView
+      component: CameraView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/login',
@@ -57,3 +70,14 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const currentUser = firebase.auth().currentUser
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+
+  if (requiresAuth && !currentUser) next('login')
+  else if (!requiresAuth && currentUser) next('gallery')
+  else next()
+})
+
+export default router
