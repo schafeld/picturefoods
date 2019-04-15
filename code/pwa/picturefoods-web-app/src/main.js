@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import Vuefire from 'vuefire'
 import { database } from '@/services/firebase'
+import firebase from 'firebase'
 import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
@@ -12,13 +13,19 @@ Vue.use(Vuefire)
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  firebase: {
-    imageCatalog: database.ref('imageCatalog').orderByChild('created_at')
-  },
-  router,
-  template: '<App/>',
-  components: { App }
+let app = ''
+// initialize Vue app only when Firebase initialized (allow reloads for routes requiring auth)
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    /* eslint-disable no-new */
+    app = new Vue({
+      el: '#app',
+      firebase: {
+        imageCatalog: database.ref('imageCatalog').orderByChild('created_at')
+      },
+      router,
+      template: '<App/>',
+      components: { App }
+    })
+  }
 })
