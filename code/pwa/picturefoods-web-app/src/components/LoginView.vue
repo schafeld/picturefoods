@@ -34,15 +34,15 @@
     },
     methods: {
       login: function () {
-        const that = this
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-          function (user) {
+          (user) => {
             console.log('Login success')
-            that.result = 'Success'
+            this.result = 'Success'
+            this.$router.replace('gallery')
           },
-          function (err) {
+          (err) => {
             console.log('Login failure. ' + err.message)
-            that.result = 'Failure'
+            this.result = 'Failure'
           }
         )
       }
