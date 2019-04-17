@@ -36,7 +36,7 @@
       login: function () {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
           (user) => {
-            console.log('Login success')
+            console.log('Login success as user: ' + user.user.email)
             this.result = 'Success'
             this.$router.replace('gallery')
           },
