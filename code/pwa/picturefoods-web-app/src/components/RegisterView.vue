@@ -28,15 +28,15 @@
   export default {
     methods: {
       register () {
-        const that = this
         firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-          function (user) {
+          (user) => {
             console.log('Signup success')
-            that.result = 'Success'
+            this.result = 'Success'
+            this.$router.replace('gallery')
           },
-          function (err) {
+          (err) => {
             console.log('Signup failure. ' + err.message)
-            that.result = 'Failure'
+            this.result = 'Failure'
           }
         )
       }
