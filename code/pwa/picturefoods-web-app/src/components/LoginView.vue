@@ -14,8 +14,10 @@
         <input class="mdl-textfield__input" id="password" type="password" v-model="password">
         <label class="mdl-textfield__label" for="password">Password</label>
       </div>
-      <button class="mdl-cell mdl-cell--1-col" @click="login">Log in</button>
-      <p>Or <router-link to="/register">sign up</router-link> for Picturefoods account</p>
+      <div class="mdl-cell mdl-cell--12-col">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" @click="login">Log in</button>
+        <p>Or <router-link to="/register">sign up</router-link> for Picturefoods account</p>
+      </div>
     </div>
     <div>Login status: {{result}}</div>
   </div>
