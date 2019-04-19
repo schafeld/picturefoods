@@ -20,6 +20,9 @@
         <router-view></router-view>
       </div>
     </main>
+    <footer>
+      Impressum...
+    </footer>
   </div>
 </template>
 
