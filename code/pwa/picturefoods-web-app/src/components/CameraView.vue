@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  import firebase from 'firebase'
   import { storage } from '@/services/firebase'
   import postImage from '../mixins/postImage'
 
@@ -33,13 +34,18 @@
         })
         */
         return imageCapture.takePhoto().then(blob => {
-          storage.ref().child(`images/picture-${new Date().getTime()}`).put(blob)
+          const user = firebase.auth().currentUser
+          storage.ref().child(`images/user/${user.uid}/picture-${new Date().getTime()}`).put(blob)
             .then(res => {
               console.table(res)
               console.log('Bucket: ' + res.ref.bucket + ', full path: ' + res.ref.fullPath)
-              this.imageUrl = 'https://firebasestorage.googleapis.com/v0/b/picturefoods-firebase.appspot.com/o/images%2F' + res.ref.name + '?alt=media'
-              this.postImage()
-              this.$router.go(-1)
+              this.imageUrl = 'https://firebasestorage.googleapis.com/v0/b/picturefoods-firebase.appspot.com/o/images%2Fuser%2F' + user.uid + '%2F' + res.ref.name + '?alt=media'
+              this.postImage(user.email)
+
+              console.log('############## Picture taken by user: ' + user.email + ', id: ' + user.uid)
+
+              // this.$router.go(-1)
+              this.$router.push('gallery')
             })
         })
       },

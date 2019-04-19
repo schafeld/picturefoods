@@ -9,7 +9,7 @@
             <img :src="picture.url" />
           </div>
           <div class="image-card__comment mdl-card__actions">
-            <span>{{ picture.comment }}</span>
+            <span>{{ picture.comment }} by {{ picture.author_email }}</span>
           </div>
         </div>
       </div>
