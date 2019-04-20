@@ -7,7 +7,9 @@ import PostView from '@/components/PostView'
 import CameraView from '@/components/CameraView'
 import LoginView from '@/components/LoginView'
 import RegisterView from '@/components/RegisterView'
-import firebase from 'firebase'
+// import firebase from 'firebase'
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
 
 Vue.use(Router)
 
