@@ -1,4 +1,4 @@
-# PictureFoods
+# Picturefoods
 ## «Snapshot Recipes»
 
 ![Picturefoods Logo](concept/artwork/logo/logo-picturefoods-002.png)
@@ -14,7 +14,7 @@ Web app for food and beverage image recognition and corresponding recipe recomme
 
 ### Konzept 
 
-Die PictureFoods App soll Nutzern anhand von mit dem Smartphone angefertigten Fotos Rezeptvorschläge liefern. 
+Die Picturefoods App soll Nutzern anhand von mit dem Smartphone angefertigten Fotos Rezeptvorschläge liefern. 
 
 Die Anwendung soll als Hybrid Web App/ PWA erstellt werden um leichte Verbreitung und Unabhängigkeit von Gerätetypen/App Stores zu erreichen.
 
@@ -47,7 +47,7 @@ Auch wenn das Projekt als Open Source Projekt startet, sollen einzelne Teile als
 
 6) Impressum, Rechtliches
   Über Standard hinausgehend: 
-  a) Erklärung des Nutzers, dass er Bildrechte hat und nichtexklusiv an _PictureFoods_ abtritt
+  a) Erklärung des Nutzers, dass er Bildrechte hat und nichtexklusiv an _Picturefoods_ abtritt
   b) Rechtsbelehrung betreffend kommerzielle Verwendung von Rezepten, bzw. deren Verbot
 
 X) Weitere Ideen, "für später"

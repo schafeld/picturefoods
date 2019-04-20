@@ -1,4 +1,4 @@
-# PictureFoods
+# Picturefoods
 ## «Snapshot Recipes»
 
 ![Picturefoods Logo](concept/artwork/logo/logo-picturefoods-002.png)
