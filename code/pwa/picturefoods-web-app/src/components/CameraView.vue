@@ -10,8 +10,10 @@
 </template>
 
 <script>
-  import firebase from 'firebase'
-  import { storage } from '@/services/firebase'
+  // import firebase from 'firebase'
+  // import { storage } from '@/services/firebase'
+  import * as firebase from 'firebase/app'
+  import 'firebase/storage'
   import postImage from '../mixins/postImage'
 
   export default {
@@ -35,7 +37,8 @@
         */
         return imageCapture.takePhoto().then(blob => {
           const user = firebase.auth().currentUser
-          storage.ref().child(`images/user/${user.uid}/picture-${new Date().getTime()}`).put(blob)
+          // storage.ref().child(`images/user/${user.uid}/picture-${new Date().getTime()}`).put(blob)
+          firebase.storage().ref().child(`images/user/${user.uid}/picture-${new Date().getTime()}`).put(blob)
             .then(res => {
               console.table(res)
               console.log('Bucket: ' + res.ref.bucket + ', full path: ' + res.ref.fullPath)
