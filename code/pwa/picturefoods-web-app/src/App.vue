@@ -21,7 +21,7 @@
       </div>
     </main>
     <footer>
-      Impressum...
+      Version 2019-04-20_001 – Impressum...
     </footer>
   </div>
 </template>
