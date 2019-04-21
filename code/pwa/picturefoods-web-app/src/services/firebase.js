@@ -1,5 +1,6 @@
-import firebase from 'firebase'
-// TODO: Implement security/auth!
+import * as firebase from 'firebase/app'
+import 'firebase/database'
+import 'firebase/storage'
 
 var config = {
   apiKey: 'AIzaSyCIIwbzcI3fB7Dr30YtGJGHDXbvNsVUdeI',
