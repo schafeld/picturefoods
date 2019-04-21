@@ -21,7 +21,7 @@
       </div>
     </main>
     <footer>
-      Version 2019-04-20_001 – Impressum...
+      Version 2019-04-21_001 – <a href="http://www.schafeld.com/#!/contact">Contact</a>
     </footer>
   </div>
 </template>
