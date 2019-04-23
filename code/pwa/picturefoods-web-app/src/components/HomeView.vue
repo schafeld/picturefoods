@@ -31,7 +31,7 @@
     },
     data () {
       return {
-        user: null
+        user: ''
       }
     },
     mounted () {
