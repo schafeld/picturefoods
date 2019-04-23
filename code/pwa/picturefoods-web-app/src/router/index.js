@@ -80,9 +80,14 @@ router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
 
-  if (requiresAuth && !currentUser) next('login')
-  else if (!requiresAuth && currentUser) next('gallery')
-  else next()
+  // Make sure Firebase Auth object is ready before checking currentUser.
+  // Without this a reload would always go to login even with autheticated user. Adapted from
+  // https://medium.com/@eder.ramirez87/modern-pwa-with-vue-cli-3-vuetify-firestore-workbox-part-5-503d6027d7c4
+  firebase.auth().onAuthStateChanged(() => {
+    if (requiresAuth && !currentUser) next('login')
+    else if (!requiresAuth && currentUser) next('gallery')
+    else next()
+  })
 })
 
 export default router
