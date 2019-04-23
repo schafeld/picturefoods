@@ -62,6 +62,7 @@
       return {}
     },
     mounted () {
+      // TODO: Check if this might cause occasional 'infinite loop in component' warning
       this.saveImagesToCache()
     }
   }
