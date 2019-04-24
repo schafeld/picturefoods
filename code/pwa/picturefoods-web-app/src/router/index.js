@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomeView from '@/components/HomeView'
+import AccountView from '@/views/AccountView'
 import GalleryView from '@/components/GalleryView'
 import DetailView from '@/components/DetailView'
 import PostView from '@/components/PostView'
@@ -27,6 +28,14 @@ const router = new Router({
       path: '/home',
       name: 'home',
       component: HomeView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: AccountView,
       meta: {
         requiresAuth: true
       }
@@ -81,7 +90,7 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
 
   // Make sure Firebase Auth object is ready before checking currentUser.
-  // Without this a reload would always go to login even with autheticated user. Adapted from
+  // Without this a page reload would always go to login even with an authenticated user. Adapted from
   // https://medium.com/@eder.ramirez87/modern-pwa-with-vue-cli-3-vuetify-firestore-workbox-part-5-503d6027d7c4
   firebase.auth().onAuthStateChanged(() => {
     if (requiresAuth && !currentUser) next('login')

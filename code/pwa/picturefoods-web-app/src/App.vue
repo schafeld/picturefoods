@@ -12,6 +12,7 @@
         <router-link class="mdl-navigation__link" to="/gallery" @click.native="hideMenu">Gallery</router-link>
         <router-link class="mdl-navigation__link" to="/post" @click.native="hideMenu">Post a picture</router-link>
         <router-link class="mdl-navigation__link" to="/camera" @click.native="hideMenu">Take snapshot</router-link>
+        <router-link class="mdl-navigation__link" to="/account" @click.native="hideMenu">Account</router-link>
         <router-link class="mdl-navigation__link" to="/login" @click.native="hideMenu">Login</router-link>
       </nav>
     </div>
