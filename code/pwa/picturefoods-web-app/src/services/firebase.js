@@ -3,7 +3,7 @@ import 'firebase/database'
 import 'firebase/storage'
 
 var config = {
-  apiKey: 'none of your business ;)',
+  apiKey: 'AIzaSyCIIwbzcI3fB7Dr30YtGJGHDXbvNsVUdeI',
   authDomain: 'picturefoods-firebase.firebaseapp.com',
   databaseURL: 'https://picturefoods-firebase.firebaseio.com',
   projectId: 'picturefoods-firebase',
