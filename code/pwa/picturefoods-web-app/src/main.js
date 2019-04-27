@@ -13,13 +13,7 @@ Vue.use(Vuefire)
 
 Vue.config.productionTip = false
 
-// let app = ''
-// initialize Vue app only when Firebase initialized (allow reloads for routes requiring auth)
-// This breaks the Material Design main menu
-// firebase.auth().onAuthStateChanged(() => {
-// if (!app) {
 /* eslint-disable no-new */
-// app =
 new Vue({
   el: '#app',
   firebase: {
@@ -29,5 +23,3 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-// }
-// })

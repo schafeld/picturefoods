@@ -59,7 +59,7 @@
         const provider = new firebase.auth.GoogleAuthProvider()
         provider.addScope('profile')
         provider.addScope('email')
-        firebase.auth().signInWithPopup(provider).then(function (result) {
+        firebase.auth().signInWithPopup(provider).then((result) => {
           // This gives you a Google Access Token (what for?)
           const user = result.user
           console.log('#### logged in as ' + user.email)

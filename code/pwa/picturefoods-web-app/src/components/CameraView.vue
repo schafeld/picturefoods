@@ -15,6 +15,7 @@
   import * as firebase from 'firebase/app'
   import 'firebase/storage'
   import postImage from '../mixins/postImage'
+  import { config } from '@/services/firebase'
 
   export default {
     mixins: [postImage],
@@ -42,7 +43,7 @@
             .then(res => {
               console.table(res)
               console.log('Bucket: ' + res.ref.bucket + ', full path: ' + res.ref.fullPath)
-              this.imageUrl = 'https://firebasestorage.googleapis.com/v0/b/picturefoods-firebase.appspot.com/o/images%2Fuser%2F' + user.uid + '%2F' + res.ref.name + '?alt=media'
+              this.imageUrl = 'https://firebasestorage.googleapis.com/v0/b/' + config.storageBucket + '/o/images%2Fuser%2F' + user.uid + '%2F' + res.ref.name + '?alt=media'
               this.postImage(user.email)
 
               console.log('############## Picture taken by user: ' + user.email + ', id: ' + user.uid)
