@@ -37,15 +37,6 @@
           return JSON.parse(localStorage.getItem('images'))
         }
       },
-      // Compare naming, https://blog.sicara.com/a-progressive-web-application-with-vue-js-webpack-material-design-part-3-service-workers-offline-ed3184264fd1
-      // snapchot - snapshots
-      // cachedCats - cachedImages
-      // snapshot - snapshots
-      // cachedCat - cachedImage
-      // catSnapchot - snapshot
-      // cachedCats - cachedImages
-      // cats - images
-      // cats - imageCatalog
       saveImagesToCache () {
         this.$root.$firebaseRefs.imageCatalog.orderByChild('created_at').once('value', (snapshots) => {
           let cachedImages = []
@@ -57,9 +48,6 @@
           localStorage.setItem('images', JSON.stringify(cachedImages))
         })
       }
-    },
-    data () {
-      return {}
     },
     mounted () {
       // TODO: Check if this might cause occasional 'infinite loop in component' warning
