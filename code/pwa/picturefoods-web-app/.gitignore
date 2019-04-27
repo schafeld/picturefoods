@@ -14,7 +14,3 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
-
-# 'Hide' Firebase API key, though it is visible in app anyway.
-# Use proper Firebase authentication rules for security!
-src/services/firebase.js
