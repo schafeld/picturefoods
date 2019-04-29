@@ -50,8 +50,7 @@
             this.$router.replace('gallery')
           },
           (err) => {
-            console.log('Login failure. ' + err.message)
-            this.result = 'Failure'
+            this.reportLoginError(err)
           }
         )
       },
@@ -60,15 +59,17 @@
         provider.addScope('profile')
         provider.addScope('email')
         firebase.auth().signInWithPopup(provider).then((result) => {
-          // This gives you a Google Access Token (what for?)
           const user = result.user
-          console.log('#### logged in as ' + user.email)
+          console.log('User is logged in as ' + user.email)
           this.result = 'Success'
           this.$router.replace('gallery')
         }).catch((err) => {
-          console.log('Login failure. ' + err.message)
-          this.result = 'Failure'
+          this.reportLoginError(err)
         })
+      },
+      reportLoginError (err) {
+        console.log('Login failure. ' + err.message)
+        this.result = 'Error ' + JSON.parse(err.message).error.code + ', ' + JSON.parse(err.message).error.message
       }
     }
   }
