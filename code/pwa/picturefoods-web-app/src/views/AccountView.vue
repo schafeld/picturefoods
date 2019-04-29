@@ -8,6 +8,9 @@
         <p>User created: <b>{{user.metadata.creationTime}}</b></p>
         <p>Last login: <b>{{user.metadata.lastSignInTime}}</b></p>
       </div>
+      <div class="mdl-cell mdl-cell--12-col">
+        <button @click="logout" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" > Logout </button>
+      </div>
     </div>
   </div>
 </template>
@@ -21,11 +24,16 @@
     methods: {
       getUser: function () {
         this.user = firebase.auth().currentUser
+      },
+      logout: function () {
+        firebase.auth().signOut().then(() => {
+          this.$router.replace('login')
+        })
       }
     },
     data () {
       return {
-        user: ''
+        user: {metadata: ''}
       }
     },
     mounted () {
