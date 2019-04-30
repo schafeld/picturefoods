@@ -4,12 +4,12 @@ import 'firebase/storage'
 
 /*
 The API key is de facto public, so make sure to implement security rules in Firebase!
-For added security you may want to restrict API access to your apps domains (deployment domain/s and the Firebase app URL if you're using Google auth for instance)
+For added security you should restrict authorization to your app domain(s). Do not leave localhost authorized!
 Further information:
 https://javebratt.com/hide-firebase-api/
 https://stackoverflow.com/questions/37482366/is-it-safe-to-expose-firebase-apikey-to-the-public
 https://cloud.google.com/docs/authentication/api-keys?hl=de#api_key_restrictions
- */
+*/
 const config = {
   // Picturefoods2 (EU West)
   apiKey: 'AIzaSyCBal8HLOQJewOfVPrXMwta7ChmRtFB2xE',
