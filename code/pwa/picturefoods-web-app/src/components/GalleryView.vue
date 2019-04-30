@@ -4,7 +4,8 @@
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--3-col mdl-cell mdl-cell--1-col-tablet mdl-cell--hide-phone"></div>
       <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone">
-        <div v-for="picture in getImages()" class="image-card clickable" :key="picture.id" @click="displayDetails(picture['.key'])">
+        <!-- TODO: Read from a complete array here instead of getting images (individually?) -->
+        <div v-for="picture in pictures" class="image-card clickable" :key="picture.id" @click="displayDetails(picture['.key'])">
           <div class="image-card__picture">
             <img :src="picture.url" />
           </div>
@@ -25,6 +26,11 @@
 
 <script>
   export default {
+    data () {
+      return {
+        pictures: {}
+      }
+    },
     methods: {
       displayDetails (id) {
         this.$router.push({name: 'detail', params: { id: id }})
@@ -32,10 +38,8 @@
       getImages () {
         if (navigator.onLine) {
           this.saveImagesToCache()
-          return this.$root.imageCatalog
-        } else {
-          return JSON.parse(localStorage.getItem('images'))
         }
+        this.pictures = this.$root.imageCatalog
       },
       saveImagesToCache () {
         this.$root.$firebaseRefs.imageCatalog.orderByChild('created_at').once('value', (snapshots) => {
@@ -50,8 +54,7 @@
       }
     },
     mounted () {
-      // TODO: Check if this might cause occasional 'infinite loop in component' warning
-      this.saveImagesToCache()
+      this.getImages()
     }
   }
 </script>
