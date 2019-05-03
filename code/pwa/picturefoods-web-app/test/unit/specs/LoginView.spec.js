@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import LoginView from '@/components/LoginView'
 import router from '@/router'
-// import { shallowMount } from '@vue/test-utils'
+// import { mount } from '@vue/test-utils'
 
-describe('LoginView.vue', () => {
+describe('LoginView', () => {
   it('should render correct contents', () => {
     const Constructor = Vue.extend(LoginView)
     const vm = new Constructor({router}).$mount()

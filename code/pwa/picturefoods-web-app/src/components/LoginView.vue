@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login-view">
     <img src="../assets/logo-picturefoods-300x80.png" alt="Picturefoods">
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--3-col mdl-cell mdl-cell--1-col-tablet mdl-cell--hide-phone">

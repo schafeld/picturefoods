@@ -1,21 +1,23 @@
 {
   "name": "picturefoods-web-app",
   "version": "1.0.0",
+  "private": true,
   "description": "Take snapshots of food ingredients to get recipe suggestions with AI support on your mobile device",
   "author": "Oliver Schafeld <oliver@schafeld.com>",
-  "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
     "serve": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
     "build": "node build/build.js",
-    "now-build": "node build/build.js",
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "e2e": "node test/e2e/runner.js",
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "dev": "node build/dev-server.js",
+    "now-build": "node build/build.js",
+    "start": "node build/dev-server.js",
+    "test:unit": "vue-cli-service test:unit",
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"
   },
   "dependencies": {
+    "@vue/cli": "^3.7.0",
     "axios": "^0.18.0",
     "firebase": "^5.9.2",
     "lodash": "^4.17.11",
@@ -26,6 +28,8 @@
     "vuefire": "^1.4.5"
   },
   "devDependencies": {
+    "@vue/cli-plugin-unit-jest": "^3.7.0",
+    "@vue/test-utils": "1.0.0-beta.29",
     "autoprefixer": "^7.1.5",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
@@ -94,13 +98,13 @@
     "webpack-hot-middleware": "^2.19.1",
     "webpack-merge": "^4.1.0"
   },
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  }
 }
