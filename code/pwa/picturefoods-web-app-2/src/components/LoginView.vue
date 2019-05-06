@@ -43,16 +43,13 @@ export default {
   },
   methods: {
     login: function () {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-        (user) => {
-          console.log('Login success as user: ' + user.user.email)
-          this.result = 'Success'
-          this.$router.replace('gallery')
-        },
-        (err) => {
-          this.reportLoginError(err)
-        }
-      )
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then((user) => {
+        console.log('Login success as user: ' + user.user.email)
+        this.result = 'Success'
+        this.$router.replace('gallery')
+      }).catch((err) => {
+        this.reportLoginError(err)
+      })
     },
     loginWithGoogle: function () {
       const provider = new firebase.auth.GoogleAuthProvider()
@@ -69,7 +66,8 @@ export default {
     },
     reportLoginError (err) {
       console.log('Login failure. ' + err.message)
-      this.result = 'Error ' + JSON.parse(err.message).error.code + ', ' + JSON.parse(err.message).error.message
+      // this.result = 'Error ' + JSON.parse(err.message).error.code + ', ' + JSON.parse(err.message).error.message
+      this.result = err.message
     }
   }
 }
