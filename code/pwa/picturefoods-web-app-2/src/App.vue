@@ -21,17 +21,18 @@
         <router-view></router-view>
       </div>
     </main>
-    <footer>
-      Version 2019-05-06_001_CLI3 – <a href="http://www.schafeld.com/#!/contact">Contact</a>
-    </footer>
+    <page-footer />
   </div>
 </template>
 
 <script>
 require('material-design-lite')
 
+import PageFooter from '@/components/PageFooter'
+
 export default {
   name: 'app',
+  components: { PageFooter },
   methods: {
     hideMenu: function () {
       document.getElementsByClassName('mdl-layout__drawer')[0].classList.remove('is-visible')
