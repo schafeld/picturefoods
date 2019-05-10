@@ -8,6 +8,7 @@ import PostView from '@/components/PostView'
 import CameraView from '@/components/CameraView'
 import LoginView from '@/components/LoginView'
 import RegisterView from '@/components/RegisterView'
+import Error404View from '@/views/Error404View'
 // import firebase from 'firebase'
 import * as firebase from 'firebase/app'
 import 'firebase/auth'
@@ -19,7 +20,8 @@ const router = new Router({
   routes: [
     {
       path: '*',
-      redirect: '/login'
+      name: 'error404',
+      component: Error404View
     },
     {
       path: '/',
