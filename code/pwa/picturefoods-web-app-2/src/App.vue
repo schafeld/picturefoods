@@ -26,9 +26,9 @@
 </template>
 
 <script>
-require('material-design-lite')
-
 import PageFooter from '@/components/PageFooter'
+
+require('material-design-lite')
 
 export default {
   name: 'app',
