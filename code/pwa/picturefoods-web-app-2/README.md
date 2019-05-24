@@ -37,3 +37,12 @@ yarn run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Deployment
+Example for deployment with [Zeit Now](https://zeit.co). For your own project make sure to enter your own domain, of course, and adapt Zeit configuration in ```now.json```to your domain.
+``` 
+now  &&  now alias https://picturefoods.schafeld.now.sh www.picturefoods.com  &&  now alias https://picturefoods.schafeld.now.sh picturefoods.com
+``` 
+
+For other domain hosting providers you need to build ```npm run build``` and upload the content of the ```dist/``` folder to your domain root. Routing is set to ```mode: 'history'```, you might need to remove that line in ```router/index.js``` and fall back to using hash tag ('/#') routes).
