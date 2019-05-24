@@ -7,6 +7,7 @@
     { "src": "^/css/(.*)", "dest": "/css/$1" },
     { "src": "^/img/(.*)", "dest": "/img/$1" },
     { "src": "manifest.js", "dest": "/manifest.js" },
-    { "src": "index.html", "dest": "/index.html" }
+    { "src": "index.html", "dest": "/index.html" },
+    {"src": ".*", "dest": "/index.html"}
   ]
 }
