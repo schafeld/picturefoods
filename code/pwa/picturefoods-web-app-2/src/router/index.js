@@ -19,15 +19,6 @@ const router = new Router({
   mode: 'history',
   routes: [
     {
-      path: '*',
-      name: 'error404',
-      component: Error404View
-    },
-    {
-      path: '/',
-      redirect: '/login'
-    },
-    {
       path: '/home',
       name: 'home',
       component: HomeView,
@@ -84,6 +75,15 @@ const router = new Router({
       path: '/register',
       name: 'register',
       component: RegisterView
+    },
+    {
+      path: '*',
+      name: 'error404',
+      component: Error404View
+    },
+    {
+      path: '/',
+      redirect: '/login'
     }
   ]
 })
