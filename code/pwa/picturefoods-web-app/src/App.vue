@@ -8,8 +8,12 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">Picturefoods</span>
       <nav class="mdl-navigation">
-        <router-link class="mdl-navigation__link" to="/" @click.native="hideMenu">Home</router-link>
+        <router-link class="mdl-navigation__link" to="/home" @click.native="hideMenu">Home</router-link>
+        <router-link class="mdl-navigation__link" to="/gallery" @click.native="hideMenu">Gallery</router-link>
         <router-link class="mdl-navigation__link" to="/post" @click.native="hideMenu">Post a picture</router-link>
+        <router-link class="mdl-navigation__link" to="/camera" @click.native="hideMenu">Take snapshot</router-link>
+        <router-link class="mdl-navigation__link" to="/account" @click.native="hideMenu">Account</router-link>
+        <router-link class="mdl-navigation__link" to="/login" @click.native="hideMenu">Login</router-link>
       </nav>
     </div>
     <main class="mdl-layout__content">
@@ -17,6 +21,9 @@
         <router-view></router-view>
       </div>
     </main>
+    <footer>
+      Version 2019-04-29_001 – <a href="http://www.schafeld.com/#!/contact">Contact</a>
+    </footer>
   </div>
 </template>
 
@@ -72,4 +79,11 @@ header span {
   box-sizing: border-box;
   padding-top: 16px;
 }
+
+div {
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
+ }
 </style>

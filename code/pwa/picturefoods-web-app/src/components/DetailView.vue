@@ -2,7 +2,7 @@
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--8-col">
       <div class="picture">
-        <router-link to="../">
+        <router-link to="/gallery">
           <img :src="image.url" />
         </router-link>
       </div>
@@ -42,7 +42,6 @@
       }
     },
     mounted () {
-      // this.image = find(this.$root.imageCatalog, (imageCatalog) => imageCatalog['.key'] === this.$route.params.id)
       this.image = this.getImage()
     }
   }
